@@ -1,0 +1,25 @@
+## YAML Template.
+---
+name: miniGameFramework
+version: 0.1
+description: Framework for making mini games .
+author: waca
+#---
+main: com.wacaalc.miniGameFramework.PluginMain
+
+depend: [CommandAPI]
+
+
+# commands:
+#    wcstart:
+#        description: start command.
+#        usage: '/wcstart [gamename] [mode]'
+#    wcend:
+#        description: end command.
+#        usage: '/wcend [gamename]'
+#    wcinit:
+#        description: init command. execute only once in a world.
+#        usage: '/wcinit [gamename]'
+#    wcreset:
+#        description: reset command.
+#        usage: '/wcreset [gamename]'
