@@ -38,38 +38,22 @@ public class PluginMain extends JavaPlugin{
                 getLogger().info("start called");
                 
                 String gamename = (String) args[0];
+
                 
                 if(!sflist.containsKey(gamename)){
                     sflist.put(gamename, new SuperFish());
                 }
                 
+                TaskGameLoop tsk = new TaskGameLoop(this,sflist.get(gamename));
+                
+                
                 //func init
- 
-                    getServer().dispatchCommand(getConsoleSender(),"gameover a true");
+                getServer().dispatchCommand(getConsoleSender(),"say a");
 
-                        
                 //func init map
                 
-                /*
-                while(!sflist.get(gamename).getGameover()){
-                    //func loop
-                    
-                    
-                    //func loop map
-                }
-                    */
-                
-                //func display result
-                
-                //func display result map
-                
-                //(delay)
-                
-                //func reset
-                
-                
-                //func reset map
-                
+                //Task
+                tsk.runTask(this);
                 
                 
             })
@@ -122,25 +106,6 @@ public class PluginMain extends JavaPlugin{
     
     
     
-    /*
-    * Legacy コマンド処理
-    
-    public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args) {    
-        if(cmd.getName().equalsIgnoreCase("wcinit")){
-            
-        }else if(cmd.getName().equalsIgnoreCase("wcstart")){
-            
-        }else if(cmd.getName().equalsIgnoreCase("wcend")){
-            
-        }else if(cmd.getName().equalsIgnoreCase("wcreset")){
-            
-        }
-        
-        
-        
-        return false;
-    }
-    */
 
     
 }

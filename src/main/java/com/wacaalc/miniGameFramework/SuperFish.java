@@ -23,4 +23,8 @@ public class SuperFish {
      return gameover;
  }
  
+ void initialize(){
+     
+ }
+ 
 }
