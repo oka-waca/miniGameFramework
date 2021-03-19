@@ -15,19 +15,23 @@ import org.bukkit.scheduler.BukkitRunnable;
  */
 public class TaskGameEnd extends BukkitRunnable{
     
-    JavaPlugin plugin;
-    SuperFish sf;
+    PluginMain plugin;
+    GameController gc;
     
-    TaskGameEnd(JavaPlugin plugin, SuperFish sf){
+    TaskGameEnd(PluginMain plugin, GameController gc){
         this.plugin = plugin;
-        this.sf = sf;
+        this.gc = gc;
     }
     
     @Override
     public void run(){
-        //reset func
+       //reset func
+       plugin.getServer().dispatchCommand(getConsoleSender(),"say d");
+       //reset func map
        plugin.getServer().dispatchCommand(getConsoleSender(),"say d");
        
+       //removeGC
+       plugin.removeGC(gc.getGamename());
     }
     
     

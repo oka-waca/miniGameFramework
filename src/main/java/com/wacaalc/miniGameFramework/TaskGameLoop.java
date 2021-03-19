@@ -15,28 +15,27 @@ import org.bukkit.scheduler.BukkitRunnable;
  */
 public class TaskGameLoop extends BukkitRunnable{
     
-    JavaPlugin plugin;
-    SuperFish sf;
-    TaskGameEnd tskend;
+    PluginMain plugin;
+    GameController gc;
     
-    TaskGameLoop(JavaPlugin plugin, SuperFish sf){
+    TaskGameLoop(PluginMain plugin, GameController gc){
         this.plugin = plugin;
-        this.sf = sf;
-        tskend = new TaskGameEnd(plugin,sf);
+        this.gc = gc;
     }
     
     @Override
     public void run(){
-        if(!sf.getGameover()){
+        
+        if(gc.getIsRunning()==true && gc.getGameover()==false){
             //func gameloop
             plugin.getServer().dispatchCommand(getConsoleSender(),"say b");
-            new TaskGameLoop(plugin,sf).runTaskLater(plugin,1);
-        }else{
+            new TaskGameLoop(plugin,gc).runTaskLater(plugin,1);
+        }else if(gc.getIsRunning()==true && gc.getGameover()==true){
             
             //display result
             plugin.getServer().dispatchCommand(getConsoleSender(),"say c");            
             //func reset
-            tskend.runTaskLater(plugin,100);
+            new TaskGameEnd(plugin,gc).runTaskLater(plugin,100);
         }
     }
 }
